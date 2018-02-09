@@ -1,0 +1,1 @@
+# zato-build-rhel6
