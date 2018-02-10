@@ -1,4 +1,5 @@
 language: python
+sudo: required
 
 env:
   - MODE=python27 IMAGE=centos:6
