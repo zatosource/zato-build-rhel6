@@ -2,6 +2,10 @@
 
 set -ex
 
+PYTHON_VER="2.7.13"
+PYTHON_URL="https://www.python.org/ftp/python/$PYTHON_VER/Python-$PYTHON_VER.tgz"
+PYTHON_PREFIX="/opt/zato/python/$PYTHON_VER"
+
 sudo yum -y install \
     bzip2 bzip2-devel cyrus-sasl-devel gcc-c++ git haproxy \
     keyutils-libs-devel libev libev-devel libevent-devel libffi libffi-devel \
