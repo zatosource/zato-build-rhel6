@@ -42,9 +42,10 @@ if [ "$IMAGE" ]; then
     # Arrange for the container to be downloaded and started.
     docker run \
         --name target \
+        --env ASSETS_BUCKET="$ASSETS_BUCKET" \
         --env AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" \
         --env AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" \
-        --env ASSETS_BUCKET="$ASSETS_BUCKET" \
+        --env TRAVIS_BUILD_DIR="$TRAVIS_BUILD_DIR" \
         --volume $TRAVIS_BUILD_DIR:$TRAVIS_BUILD_DIR \
         --volume /tmp/travis-cache/opt/zato/python:/opt/zato/python \
         --volume /tmp/travis-cache/root/.cache/pip:/root/.cache/pip \
