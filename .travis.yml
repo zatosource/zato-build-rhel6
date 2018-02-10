@@ -1,0 +1,10 @@
+language: python
+
+env:
+  - MODE=python27 IMAGE=centos:6
+
+notifications:
+  email: false
+
+script:
+  - source .travis/test_${MODE}.sh
