@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -ex
-yum -y install awscli
+sudo yum -y install awscli
 
 source $TRAVIS_BUILD_DIR/.travis/setup.sh
 run $TRAVIS_BUILD_DIR/build_python27.sh
