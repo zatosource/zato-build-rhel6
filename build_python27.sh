@@ -7,11 +7,7 @@ PYTHON_URL="https://www.python.org/ftp/python/$PYTHON_VER/Python-$PYTHON_VER.tgz
 PYTHON_PREFIX="/opt/zato/python/$PYTHON_VER"
 
 sudo yum -y install \
-    bzip2 bzip2-devel cyrus-sasl-devel gcc-c++ git haproxy \
-    keyutils-libs-devel libev libev-devel libevent-devel libffi libffi-devel \
-    libxml2-devel libxslt-devel libyaml-devel openldap-devel openssl \
-    openssl-devel patch postgresql-devel python-devel suitesparse swig uuid \
-    uuid-devel wget
+    bzip2 gcc-c++ git libffi-devel openssl-devel wget
 
 wget -P /tmp "$PYTHON_URL"
 tar -C /tmp -zxf "/tmp/Python-$PYTHON_VER.tgz"
@@ -22,5 +18,5 @@ cd "/tmp/Python-$PYTHON_VER"
 make -j 2 >/dev/null
 sudo make altinstall >/dev/null
 
-tar -jcf /tmp/python27.tar.bz2 "$PYTHON_PYTHON"
+tar -jcf /tmp/python27.tar.bz2 "$PYTHON_PREFIX"
 aws s3 cp /tmp/python27.tar.bz2 s3://$ASSETS_BUCKET/python27.tar.bz2
