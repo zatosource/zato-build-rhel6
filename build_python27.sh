@@ -17,4 +17,8 @@ cd "/tmp/Python-$PYTHON_VER"
 make -j 2 >/dev/null
 sudo make altinstall >/dev/null
 
+sudo strip "$PYTHON_PREFIX/bin/python2.7"
+sudo ln -fs "$PYTHON_PREFIX/bin/python2.7" "$PYTHON_PREFIX/bin/python"
+sudo ln -fs "$PYTHON_PREFIX/bin/python2.7" "$PYTHON_PREFIX/bin/python2"
+
 tar -jcf $TRAVIS_BUILD_DIR/python27.tar.bz2 "$PYTHON_PREFIX"
